@@ -37,10 +37,12 @@ app.post('/', async c => {
     }
 })
 
-const port = 3000
-console.log(`Server is running on http://localhost:${port}`)
+export default app
 
-serve({
-    fetch: app.fetch,
-    port,
-})
+// const port = 3000
+// console.log(`Server is running on http://localhost:${port}`)
+
+// serve({
+//     fetch: app.fetch,
+//     port,
+// })
