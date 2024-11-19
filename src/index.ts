@@ -1,7 +1,7 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 import { pipeline } from '@huggingface/transformers'
-import { validateMessagesSchema } from './validates/validate-login.js'
+import { validateMessagesSchema } from './validates/validate-messages.js'
 
 const app = new Hono()
 
@@ -37,12 +37,10 @@ app.post('/', async c => {
     }
 })
 
-export default app
+const port = 3000
+console.log(`Server is running on http://localhost:${port}`)
 
-// const port = 3000
-// console.log(`Server is running on http://localhost:${port}`)
-
-// serve({
-//     fetch: app.fetch,
-//     port,
-// })
+serve({
+    fetch: app.fetch,
+    port,
+})
