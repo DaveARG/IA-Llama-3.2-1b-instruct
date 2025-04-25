@@ -1,0 +1,318 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Custom Lists API",
+        "description": "API for managing custom lists"
+    },
+    "servers": [
+        {
+            "url": "v1"
+        }
+    ],
+    "components": {
+        "schemas": {},
+        "parameters": {}
+    },
+    "paths": {
+        "/centralized-api/custom-lists/": {
+            "get": {
+                "summary": "Get a single user",
+                "responses": {
+                    "200": {
+                        "description": "Object with custom list data by group.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "1212121"
+                                                },
+                                                "group": {
+                                                    "type": "string",
+                                                    "example": "1212121"
+                                                },
+                                                "type": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "counseling-type",
+                                                        "kudo-type",
+                                                        "issue-type",
+                                                        "incident-type",
+                                                        "parking-space",
+                                                        "vehicle-type",
+                                                        "counseling-severity",
+                                                        "vehicle-company",
+                                                        "roster-status",
+                                                        "photo-log",
+                                                        "route-time",
+                                                        "roster-checklist-associate-task",
+                                                        "roster-checklist-item-type",
+                                                        "roster-checklist-completion-frequency",
+                                                        "roster-checklist-assigned-to-option",
+                                                        "roster-checklist-user-task"
+                                                    ],
+                                                    "example": "counseling-type"
+                                                },
+                                                "listCategory": {
+                                                    "type": "string",
+                                                    "example": "Counseling Type"
+                                                },
+                                                "listName": {
+                                                    "type": "string",
+                                                    "example": "Counseling Type"
+                                                },
+                                                "listDisplay": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "Status Pill",
+                                                        "Text Only",
+                                                        "Text With Templates",
+                                                        "Time"
+                                                    ],
+                                                    "example": "Status Pill"
+                                                },
+                                                "enabledRecordTemplates": {
+                                                    "type": [
+                                                        "boolean",
+                                                        "null"
+                                                    ]
+                                                },
+                                                "options": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "items": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "id": {
+                                                                        "type": "string",
+                                                                        "example": "1212121"
+                                                                    },
+                                                                    "group": {
+                                                                        "type": "string",
+                                                                        "example": "1212121"
+                                                                    },
+                                                                    "order": {
+                                                                        "type": "number",
+                                                                        "example": 1
+                                                                    },
+                                                                    "option": {
+                                                                        "type": "string",
+                                                                        "example": "Option"
+                                                                    },
+                                                                    "default": {
+                                                                        "type": "boolean",
+                                                                        "example": true
+                                                                    },
+                                                                    "isEnabled": {
+                                                                        "type": "boolean",
+                                                                        "example": true
+                                                                    },
+                                                                    "pillColor": {
+                                                                        "type": [
+                                                                            "string",
+                                                                            "null"
+                                                                        ]
+                                                                    },
+                                                                    "statusType": {
+                                                                        "type": [
+                                                                            "string",
+                                                                            "null"
+                                                                        ]
+                                                                    },
+                                                                    "isCustom": {
+                                                                        "type": "boolean",
+                                                                        "example": true
+                                                                    },
+                                                                    "usedFor": {
+                                                                        "type": "number",
+                                                                        "example": 1
+                                                                    },
+                                                                    "daysCount": {
+                                                                        "type": "number",
+                                                                        "example": 1
+                                                                    },
+                                                                    "canBeEdited": {
+                                                                        "type": "boolean",
+                                                                        "example": true
+                                                                    },
+                                                                    "canBeDeleted": {
+                                                                        "type": "boolean",
+                                                                        "example": true
+                                                                    },
+                                                                    "canBeReorder": {
+                                                                        "type": "boolean",
+                                                                        "example": true
+                                                                    },
+                                                                    "isDefaultForSections": {
+                                                                        "type": [
+                                                                            "array",
+                                                                            "null"
+                                                                        ],
+                                                                        "items": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "isHiddenForSections": {
+                                                                        "type": [
+                                                                            "array",
+                                                                            "null"
+                                                                        ],
+                                                                        "items": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "recordTemplateJson": {
+                                                                        "type": [
+                                                                            "string",
+                                                                            "null"
+                                                                        ]
+                                                                    },
+                                                                    "updatedAt": {
+                                                                        "type": "string",
+                                                                        "example": "2023-01-01T00:00:00.000Z"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "id",
+                                                                    "group",
+                                                                    "order",
+                                                                    "option",
+                                                                    "default",
+                                                                    "isEnabled",
+                                                                    "pillColor",
+                                                                    "statusType",
+                                                                    "isCustom",
+                                                                    "usedFor",
+                                                                    "daysCount",
+                                                                    "canBeEdited",
+                                                                    "canBeDeleted",
+                                                                    "canBeReorder",
+                                                                    "isDefaultForSections",
+                                                                    "isHiddenForSections",
+                                                                    "recordTemplateJson",
+                                                                    "updatedAt"
+                                                                ],
+                                                                "example": {
+                                                                    "id": "1212121",
+                                                                    "group": "1212121",
+                                                                    "order": 1,
+                                                                    "option": "Option",
+                                                                    "default": true,
+                                                                    "isEnabled": true,
+                                                                    "pillColor": "blue",
+                                                                    "statusType": "Active (Positive)",
+                                                                    "isCustom": true,
+                                                                    "usedFor": 1,
+                                                                    "daysCount": 1,
+                                                                    "canBeEdited": true,
+                                                                    "canBeDeleted": true,
+                                                                    "canBeReorder": true,
+                                                                    "isDefaultForSections": [
+                                                                        "section1"
+                                                                    ],
+                                                                    "isHiddenForSections": [
+                                                                        "section2"
+                                                                    ],
+                                                                    "recordTemplateJson": null,
+                                                                    "updatedAt": "2023-01-01T00:00:00.000Z"
+                                                                }
+                                                            },
+                                                            "example": [
+                                                                {
+                                                                    "id": "1212121",
+                                                                    "group": "1212121",
+                                                                    "order": 1,
+                                                                    "option": "Option",
+                                                                    "default": true,
+                                                                    "isEnabled": true,
+                                                                    "pillColor": "blue",
+                                                                    "statusType": "Active (Positive)",
+                                                                    "isCustom": true,
+                                                                    "usedFor": 1,
+                                                                    "daysCount": 1,
+                                                                    "canBeEdited": true,
+                                                                    "canBeDeleted": true,
+                                                                    "canBeReorder": true,
+                                                                    "isDefaultForSections": [
+                                                                        "section1"
+                                                                    ],
+                                                                    "isHiddenForSections": [
+                                                                        "section2"
+                                                                    ],
+                                                                    "recordTemplateJson": null,
+                                                                    "updatedAt": "2023-01-01T00:00:00.000Z"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "nextToken": {
+                                                            "type": "null"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "items",
+                                                        "nextToken"
+                                                    ],
+                                                    "example": {
+                                                        "items": [
+                                                            {
+                                                                "id": "1212121",
+                                                                "group": "1212121",
+                                                                "order": 1,
+                                                                "option": "Option",
+                                                                "default": true,
+                                                                "isEnabled": true,
+                                                                "pillColor": "blue",
+                                                                "statusType": "Active (Positive)",
+                                                                "isCustom": true,
+                                                                "usedFor": 1,
+                                                                "daysCount": 1,
+                                                                "canBeEdited": true,
+                                                                "canBeDeleted": true,
+                                                                "canBeReorder": true,
+                                                                "isDefaultForSections": [
+                                                                    "section1"
+                                                                ],
+                                                                "isHiddenForSections": [
+                                                                    "section2"
+                                                                ],
+                                                                "recordTemplateJson": null,
+                                                                "updatedAt": "2023-01-01T00:00:00.000Z"
+                                                            }
+                                                        ],
+                                                        "nextToken": null
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "id",
+                                                "group",
+                                                "type",
+                                                "listCategory",
+                                                "listName",
+                                                "listDisplay",
+                                                "enabledRecordTemplates",
+                                                "options"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "webhooks": {}
+}
